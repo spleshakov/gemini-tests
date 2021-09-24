@@ -1,16 +1,19 @@
-const Common = require('./common')
+const Common = require('./common');
+const institutionalClientRegistration = new (require('./institutional-client-registration'))()
 const {browser} = require("protractor");
+const {waitForElements} = require('./../helpers/actions');
 
 class CreateNewAccount extends Common {
     constructor() {
         super();
+        this.$header = $('[data-testid="title"]');
         this.$createBusinessAccount = $('[data-testid="register-go-to-institution-register"]');
     }
 
     async createBusinessAccount() {
         await this.$createBusinessAccount.click();
-        await this.waitForElements(
-            sdff
+        await waitForElements(
+            institutionalClientRegistration.$header
         )
     }
 }

@@ -1,0 +1,16 @@
+{
+  "companyInformation": {
+    "name": "unique name ",
+    "type": "Broker-Dealer"
+  },
+  "companyLocation": {
+    "country": "United States",
+    "state": "NY"
+  },
+  "personalInformation": {
+    "firstName": "Serge",
+    "middleName": "S",
+    "lastName": "Pl",
+    "email": "serge.pl@mailsac.com"
+  }
+}

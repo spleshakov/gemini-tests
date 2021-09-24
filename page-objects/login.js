@@ -1,6 +1,7 @@
 const Common = require('./common')
 const {browser} = require("protractor");
-const createNewAccount = new (require('./create-new-account'))()
+const createNewAccount = new (require('./create-new-account'))();
+const {waitForElements} = require('./../helpers/actions');
 
 class Login extends Common {
     constructor() {
@@ -11,7 +12,7 @@ class Login extends Common {
 
     async goToHomePage() {
         await browser.get('/');
-        await this.waitForElements(
+        await waitForElements(
             this.$title,
             this.$createNewAccount
         )
@@ -19,7 +20,7 @@ class Login extends Common {
 
     async createNewAccount() {
         await this.$createNewAccount.click();
-        await this.waitForElements(
+        await waitForElements(
             createNewAccount.$createBusinessAccount
         )
     }

@@ -1,11 +1,15 @@
 const {element, ExpectedConditions} = require("protractor");
 
+
 class Dropdown {
-    constructor(_labelCSS) {
+    constructor(_labelCSS, nextedDiv = false) {
         this.$container = $(_labelCSS + ' [class*="container"]:not([class*="value"]):not([style="display:none"]');
         this.$input = $(_labelCSS + ' input');
-        this.$$options = $$(_labelCSS + ' [class*="option"] div');
-        this.$option = option => element(by.cssContainingText(_labelCSS + ' [class*="option"] div', option))
+
+        // selectors are a bit different from dropdown to dropdown
+        let _optionCSS = nextedDiv ? ' [id*="react-select"] div' : ' [id*="react-select"]'
+        this.$$options = $$(_labelCSS + _optionCSS);
+        this.$option = option => element(by.cssContainingText(_labelCSS + _optionCSS, option))
     }
 
     async select(option) {

@@ -3,21 +3,14 @@ const {ExpectedConditions, browser} = require("protractor");
 class Common {
 
     constructor() {
+        this.cookieOverlay = {
+            $okButton: $('[data-testid="cookiePolicyAgreement-close"]')
+        }
     }
 
-    async waitForElements(...$$elements) {
-        let timeout = 30*1000; // ms
-        let conditions = $$elements.map(
-            $elem => ExpectedConditions.presenceOf($elem)
-        )
-
-        return browser.wait(
-            ExpectedConditions.and(...conditions),
-            timeout,
-            'waitForElements failed'
-        )
+    async handleCookiePopup() {
+        await this.cookieOverlay.$okButton.click();
     }
-
 }
 
 module.exports = Common

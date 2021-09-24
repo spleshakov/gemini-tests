@@ -9,7 +9,7 @@ let protractorConfig = {
 
 	directConnect: true,
 
-	specs: ["specs/1.spec.js"],
+	specs: ["specs/happy-path.spec.js"],
 
 	capabilities: {
 		"browserName": "chrome",
@@ -60,6 +60,8 @@ let protractorConfig = {
 				},
 			})
 		)
+		await browser.driver.manage().window().setSize(1920, 1080);
+		await browser.driver.manage().window().maximize();
 		await browser.waitForAngularEnabled(false);
 	},
 
