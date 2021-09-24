@@ -1,4 +1,4 @@
-const Common = require('./common')
+const Common = require('./common');
 
 class ThanksForRegistering extends Common {
     constructor() {
@@ -8,4 +8,4 @@ class ThanksForRegistering extends Common {
 
 }
 
-module.exports = ThanksForRegistering
+module.exports = ThanksForRegistering;

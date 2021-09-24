@@ -1,5 +1,3 @@
-const {ExpectedConditions, browser} = require("protractor");
-
 class Common {
 
     constructor() {

@@ -9,7 +9,7 @@ let protractorConfig = {
 
 	directConnect: true,
 
-	specs: ["specs/happy-path.spec.js"],
+	specs: ["specs/*.spec.js"],
 
 	capabilities: {
 		"browserName": "chrome",
@@ -19,16 +19,16 @@ let protractorConfig = {
 		}
 	},
 
-	//Set timeout for all scripts
+	// set timeout for all scripts
 	allScriptsTimeout: 300000,
 
-	//set Protractor timeout
+	// set Protractor timeout
 	getPageTimeout: 300000,
 
 	// testing framework, jasmine is the default
 	framework: "jasmine",
 
-	// Options to be passed to Jasmine.
+	// options to be passed to Jasmine.
 	jasmineNodeOpts: {
 
 		// onComplete will be called just before the driver quits.

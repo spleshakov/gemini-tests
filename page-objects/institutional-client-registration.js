@@ -1,8 +1,7 @@
 const Common = require('./common');
-const {browser} = require("protractor");
 const Dropdown = require('./components/dropdown');
 const {scroll, waitForElements} = require('./../helpers/actions');
-const thanksForRegistering = new (require('./thanks-for-registering'))()
+const thanksForRegistering = new (require('./thanks-for-registering'))();
 
 class InstitutionalClientRegistration extends Common {
     constructor() {

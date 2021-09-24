@@ -1,6 +1,5 @@
 const Common = require('./common');
-const institutionalClientRegistration = new (require('./institutional-client-registration'))()
-const {browser} = require("protractor");
+const institutionalClientRegistration = new (require('./institutional-client-registration'))();
 const {waitForElements} = require('./../helpers/actions');
 
 class CreateNewAccount extends Common {

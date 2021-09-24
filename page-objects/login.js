@@ -1,4 +1,4 @@
-const Common = require('./common')
+const Common = require('./common');
 const {browser} = require("protractor");
 const createNewAccount = new (require('./create-new-account'))();
 const {waitForElements} = require('./../helpers/actions');
