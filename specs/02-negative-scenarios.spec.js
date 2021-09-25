@@ -3,12 +3,10 @@
 let LoginPage = require('./../page-objects/login');
 let CreateNewAccount = require('./../page-objects/create-new-account');
 let InstitutionalClientRegistration = require('./../page-objects/institutional-client-registration');
-let ThanksForRegistering = require('./../page-objects/thanks-for-registering');
 // instantiate Page Object classes
 let loginPage = new LoginPage();
 let createNewAccount = new CreateNewAccount();
 let clientRegistration = new InstitutionalClientRegistration();
-let thanksForRegistering = new ThanksForRegistering();
 // prepare other variables
 let data = require('../test-data/happy-path.json');
 let {getRandomString} = require('./../helpers/functions')

@@ -1,6 +1,6 @@
 const Common = require('./common');
 const Dropdown = require('./components/dropdown');
-const {scroll, waitForElements, waitForOneOfElements} = require('./../helpers/actions');
+const {scroll, waitForOneOfElements} = require('./../helpers/actions');
 const {element, browser} = require("protractor");
 const thanksForRegistering = new (require('./thanks-for-registering'))();
 
