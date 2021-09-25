@@ -21,7 +21,8 @@ class Login extends Common {
     async createNewAccount() {
         await this.$createNewAccount.click();
         await waitForElements(
-            createNewAccount.$createBusinessAccount
+            createNewAccount.$createBusinessAccount,
+            createNewAccount.$header
         )
     }
 }

@@ -7,7 +7,8 @@ class Common {
     }
 
     async handleCookiePopup() {
-        await this.cookieOverlay.$okButton.click();
+        if (await this.cookieOverlay.$okButton.isPresent())
+            await this.cookieOverlay.$okButton.click();
     }
 }
 

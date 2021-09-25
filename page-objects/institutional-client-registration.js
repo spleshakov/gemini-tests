@@ -1,12 +1,18 @@
 const Common = require('./common');
 const Dropdown = require('./components/dropdown');
-const {scroll, waitForElements} = require('./../helpers/actions');
+const {scroll, waitForElements, waitForOneOfElements} = require('./../helpers/actions');
+const {element, browser} = require("protractor");
 const thanksForRegistering = new (require('./thanks-for-registering'))();
 
 class InstitutionalClientRegistration extends Common {
     constructor() {
         super();
         this.$header = $('.FormHeader h3');
+        this.errorOverlay = {
+            $item: label => element(by.cssContainingText('.AlertBody li', label)),
+            $emailError: $('.AlertBody'),
+            $close: $('.AlertClose a')
+        }
 
         this.$legalBusinessName = $('[name="company.legalName"]');
         this.companyTypeDropdown = new Dropdown('[data-testid="companyTypeDropdown-label"]', true)
@@ -54,7 +60,8 @@ class InstitutionalClientRegistration extends Common {
     async continue() {
         await scroll(this.$continueButton);
         await this.$continueButton.click();
-        await waitForElements(thanksForRegistering.$header);
+        await browser.sleep(500);
+        await waitForOneOfElements(thanksForRegistering.$header, this.errorOverlay.$close);
     }
 }
 

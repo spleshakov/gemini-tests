@@ -15,6 +15,19 @@ module.exports = {
         )
     },
 
+    waitForOneOfElements(...$$elements) {
+        let timeout = 30*1000; // ms
+        let conditions = $$elements.map(
+            $elem => ExpectedConditions.presenceOf($elem)
+        )
+
+        return browser.wait(
+            ExpectedConditions.or(...conditions),
+            timeout,
+            'waitForOneOfElements failed'
+        )
+    },
+
     async scroll($element) {
         await browser.executeScript(
             'arguments[0].scrollIntoView({block: "center"})',

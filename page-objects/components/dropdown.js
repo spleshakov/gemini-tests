@@ -1,5 +1,5 @@
 const {element, ExpectedConditions} = require("protractor");
-
+const {waitForOneOfElements} = require('./../../helpers/actions');
 
 class Dropdown {
     /**
@@ -14,18 +14,23 @@ class Dropdown {
         // selectors are a bit different from dropdown to dropdown
         let _optionCSS = nestedDiv ? ' [id*="react-select"] div' : ' [id*="react-select"]'
         this.$$options = $$(_labelCSS + _optionCSS);
-        this.$option = option => element(by.cssContainingText(_labelCSS + _optionCSS, option))
+        this.$option = option => element(by.cssContainingText(_labelCSS + _optionCSS, option));
+        this.$noItemsFound = element(by.cssContainingText('[class*="-no-options"]', 'No items found.'))
     }
 
-    async select(option) {
+    async type(option) {
         await this.$container.click();
         await browser.wait(
-            ExpectedConditions.presenceOf(this.$option(option)),
+            async () => (await this.$$options.count()) > 0,
             1000,
             'No options populated after clicking dropdown'
         );
         await this.$input.sendKeys(option);
         await browser.sleep(500);
+    }
+
+    async select(option) {
+        await this.type(option);
         await this.$option(option).click();
     }
 }

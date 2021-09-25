@@ -10,7 +10,7 @@ let createNewAccount = new CreateNewAccount();
 let clientRegistration = new InstitutionalClientRegistration();
 let thanksForRegistering = new ThanksForRegistering();
 // prepare other variables
-let data = require('./../data/happy-path.json');
+let data = require('./../test-data/happy-path.json');
 let {getRandomString} = require('./../helpers/functions')
 
 describe('Suite: business account registration - happy path scenario', () => {
